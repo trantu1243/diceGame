@@ -3,16 +3,17 @@
 var s1 = document.querySelector(".img1");
 var s2 = document.querySelector(".img2");
 
+var ms=200;
 
+var dice1 = Math.floor(Math.random()*6)+1;
+var dice2 = Math.floor(Math.random()*6)+1;
 
-    var dice1 = Math.floor(Math.random()*6)+1;
-    var dice2 = Math.floor(Math.random()*6)+1;
+var sdice1 = "./images/dice" + dice1 + ".png";
+var sdice2 = "./images/dice" + dice2 + ".png";
 
-    var sdice1 = "./images/dice" + dice1 + ".png";
-    var sdice2 = "./images/dice" + dice2 + ".png";
+rolling();
 
-    rolling();
-
+setTimeout(function(){
     changeImage(s1, sdice1);
     changeImage(s2, sdice2);
 
@@ -25,25 +26,27 @@ var s2 = document.querySelector(".img2");
     else{
         document.querySelector("h1").textContent = "Draw!";
     }
+}, ms*13)
+    
 
 
 
 function rolling(){
     
     for(var i=0; i<2; i++)
-        start();
+        start(i);
 
         
 }
 
-function start(){
+function start(i){
     
-    setTimeout(changeImages("1"),500);
-    setTimeout(changeImages("2"),500);
-    setTimeout(changeImages("3"),500);
-    setTimeout(changeImages("4"),500);
-    setTimeout(changeImages("5"),500);
-    setTimeout(changeImages("6"),500);
+    setTimeout(function () {changeImages("1")} ,ms + i * ms * 6);
+    setTimeout(function () {changeImages("2")} ,2*ms + i * ms * 6);
+    setTimeout(function () {changeImages("3")} ,3*ms + i * ms * 6);
+    setTimeout(function () {changeImages("4")} ,4*ms + i * ms * 6);
+    setTimeout(function () {changeImages("5")} ,5*ms + i * ms * 6);
+    setTimeout(function () {changeImages("6")} ,6*ms + i * ms * 6);
     
 }
 
@@ -55,6 +58,7 @@ function changeImages(number){
 function changeImage(s, source){
     s.setAttribute("src",source);
 }
+
 
 
 
