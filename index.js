@@ -1,5 +1,3 @@
-
-
 var s1 = document.querySelector(".img1");
 var s2 = document.querySelector(".img2");
 
@@ -58,7 +56,3 @@ function changeImages(number){
 function changeImage(s, source){
     s.setAttribute("src",source);
 }
-
-
-
-
